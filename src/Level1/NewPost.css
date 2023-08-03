@@ -20,7 +20,6 @@
   .newpost-input {
     padding: 8px;
     margin: 5px;
-    width: 100%;
     max-width: 300px; /* Limit the input width to 300px */
   }
   
@@ -39,6 +38,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
   }
   
   .newpost-link {

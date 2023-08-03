@@ -60,8 +60,7 @@ const Display=()=>{
     }
     return (
         <>
-            <Link to='profile'><button>Profile</button></Link>
-            <br />
+            
             <Link to='signup'><button>Sign up</button></Link>
             <br />
             <Link to='login'><button>Login</button></Link>
