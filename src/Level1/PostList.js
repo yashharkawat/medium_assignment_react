@@ -3,6 +3,7 @@ import Post from './Post';
 import { useEffect,useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const PostList = (props) => {
     const [posts,setPosts]=useState([]);
     useEffect(()=>{
