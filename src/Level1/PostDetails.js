@@ -2,11 +2,14 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import SimilarAuthor from "../level3/SimilarAuthor";
+import RecommendedPosts from "../level3/RecommendedPosts";
 
 const PostDetails = () => {
   const params= useParams();
   const [post,setPost]=useState({});
   const [loading,setLoading]=useState(true);
+  const [similar,setSimilar]=useState(true);
+
   useEffect(()=>{
     setLoading(true);
     try{
@@ -35,8 +38,11 @@ const PostDetails = () => {
       <img src={post.image} style={{ width: "300px", height: "200px" }} />
       <p>{post.text}</p>
       <button onClick={clickHandler}>Follow author</button>
-      <SimilarAuthor author={post.author} id={post.id}/>
-      
+      <br />
+      <span onClick={()=>setSimilar(true)}>Similar posts</span>
+      <span onClick={()=>setSimilar(false)}>Recommended posts</span>
+      {similar&& <SimilarAuthor author={post.author} id={post.id}/>}
+      {!similar &&<RecommendedPosts />}
     </div>
   );
 };

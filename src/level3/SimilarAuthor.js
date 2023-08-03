@@ -14,14 +14,11 @@ const SimilarAuthor=(props)=>{
     },[])
     const deletePostHandler=()=>{};
     return (
-        <>
-            <h2>Posts by same author</h2>
-            <div className="post-list">
-                {posts.map((post, index) => (
-                <Post key={index} post={post} deletePost={deletePostHandler}/>
-                ))}
-            </div>
-        </>
+        <div className="post-list">
+            {posts.map((post, index) => (
+            <Post key={index} post={post} deletePost={deletePostHandler}/>
+            ))}
+        </div>
         );
 }
 export default SimilarAuthor;
