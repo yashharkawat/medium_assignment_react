@@ -15,8 +15,8 @@ const EditProfile=()=>{
     const navigate=useNavigate();
                 
     return (
-        <div>
-            <h2>Hii</h2>
+        <div className="container">
+            <h2>Edit Profile</h2>
             <Formik initialValues={{username:'',email:'',name:'',age:'',bio:''}} validationSchema={editProfileSchema} onSubmit={(values)=>{
                 //console.log(values);
                 //localStorage.setItem('demo_user',true);
@@ -24,27 +24,27 @@ const EditProfile=()=>{
             }}>
             {({values,handleBlur,handleChange,handleSubmit,errors,touched})=>
                 (
-                    <form noValidate onSubmit={handleSubmit}>
-                        <input name='name' type='text' placeholder="Enter name" value={values.name} onChange={handleChange} onBlur={handleBlur}/>
-                        <br />
-                        {touched.name&&errors.name && <div>{errors.name}</div>}
-                        <input name='age' type='number' placeholder="age" value={values.age} onChange={handleChange} onBlur={handleBlur}/>
-                        {touched.age&&errors.age && <div>{errors.age}</div>}
-                        <br />
-                        <input name='username' type='text' placeholder="username" value={values.username} onChange={handleChange} onBlur={handleBlur}/>
-                        <br />
-                        {touched.username&&errors.username && <div>{errors.username}</div>}
-                        <input name='bio' type='text' placeholder="bio" value={values.bio} onChange={handleChange} onBlur={handleBlur}/>
-                        <br />
-                        <input name='email' type='email' placeholder="email" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
-                        <br />
+                    <form noValidate onSubmit={handleSubmit} className="form">
+                        <input name='name' className="input" type='text' placeholder="Enter name" value={values.name} onChange={handleChange} onBlur={handleBlur}/>
                         
-                        <button type="submit">Edit Profile</button>
+                        {touched.name&&errors.name && <div  className="error">{errors.name}</div>}
+                        <input name='age'  className="input" type='number' placeholder="age" value={values.age} onChange={handleChange} onBlur={handleBlur}/>
+                        {touched.age&&errors.age && <div className="error">{errors.age}</div>}
+                        
+                        <input name='username'  className="input" type='text' placeholder="username" value={values.username} onChange={handleChange} onBlur={handleBlur}/>
+                       
+                        {touched.username&&errors.username && <div className="error">{errors.username}</div>}
+                        <input name='bio'  className="input" type='text' placeholder="bio" value={values.bio} onChange={handleChange} onBlur={handleBlur}/>
+                       
+                        <input name='email'  className="input" type='email' placeholder="email" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
+                        
+                        
+                        <button type="submit" className="button">Edit Profile</button>
                     </form>
                 )
             }
             </Formik>
-            <Link to='/profile'><button>Profile</button></Link>
+            <Link to='/profile'><button className="button">Profile</button></Link>
         </div>
     );
 }

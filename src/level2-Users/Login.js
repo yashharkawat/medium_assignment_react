@@ -1,17 +1,18 @@
-import { Formik } from "formik";
 import React from "react";
+import { Formik } from "formik";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
+import "./Login.css"; 
 
 const SignInSchema = yup.object().shape({
-  username: yup.string().required("username is required"),
-  password: yup.string().required("Password ke bina login?"),
+  username: yup.string().required("Username is required"),
+  password: yup.string().required("Password is required"),
 });
 
 const Login = () => {
   return (
-    <div>
-      <h3>Sign In</h3>
+    <div className="login-container">
+      <h3 className="login-title">Sign In</h3>
       <Formik
         initialValues={{ username: "", password: "" }}
         validationSchema={SignInSchema}
@@ -29,7 +30,7 @@ const Login = () => {
           touched,
           errors,
         }) => (
-          <form noValidate onSubmit={handleSubmit}>
+          <form noValidate onSubmit={handleSubmit} className="login-form">
             <div>
               <input
                 type="text"
@@ -38,32 +39,41 @@ const Login = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 autoComplete="username"
-                placeholder="janesmith"
+                placeholder="Enter username"
+                className="login-input"
               />
+              <br />
               {touched.username && !!errors.username && (
-                <span>{errors.username}</span>
+                <div className="login-error">{errors.username}</div>
               )}
             </div>
             <div>
               <input
-                type="text"
+                type="password"
                 name="password"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                autoComplete="password"
-                placeholder="password"
+                autoComplete="current-password"
+                placeholder="Enter password"
+                className="login-input"
               />
+              <br />
               {touched.password && !!errors.password && (
-                <span>{errors.password}</span>
+                <div className="login-error">{errors.password}</div>
               )}
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" className="login-button">
+              Login
+            </button>
           </form>
         )}
       </Formik>
-      <Link to='/'><button>Home</button></Link>
+      <Link to="/" className="login-link">
+        <button className="login-button">Home</button>
+      </Link>
     </div>
   );
 };
+
 export default Login;
