@@ -1,25 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import PostList from './PostList';
+
+import {
+  createBrowserRouter,RouterProvider
+} from "react-router-dom";
+import React from 'react';
+import './App.css'
+import NewPost from './NewPost';
+import Edit from './Edit';
+import Display from './Display';
+import SignUp from './SignUp';
+import Login from './Login';
+import ProfilePage from './ProfilePage';
+import EditProfile from './EditProfile';
+const router=createBrowserRouter([
+{
+  path:'/',
+  element:<Display />
+},
+{
+  path:'add',
+  element:<NewPost />
+},
+{
+  path:'edit/:id',
+  element:<Edit />
+},
+{
+  path:'signup',
+  element:<SignUp />
+},
+{
+  path:'login',
+  element:<Login />
+},
+{
+  path:'profile',
+  element:<ProfilePage />
+},
+{
+  path:'editProfile',
+  element:<EditProfile />
+}
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.StrictMode>
+      <RouterProvider router={router}/>
+    </React.StrictMode>
+  
   );
 }
 
 export default App;
+
